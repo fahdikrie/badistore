@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@supabase/auth-helpers-nextjs': ^0.5.4
   '@supabase/supabase-js': ^2.8.0
+  '@tailwindcss/line-clamp': ^0.4.2
   '@trivago/prettier-plugin-sort-imports': ^4.1.1
   '@types/node': 18.14.1
   '@types/react': 18.0.28
@@ -43,6 +44,7 @@ dependencies:
   typescript: 4.9.5
 
 devDependencies:
+  '@tailwindcss/line-clamp': 0.4.2_tailwindcss@3.2.7
   '@trivago/prettier-plugin-sort-imports': 4.1.1_prettier@2.8.4
   '@typescript-eslint/eslint-plugin': 5.53.0_ny4s7qc6yg74faf3d6xty2ofzy
   '@typescript-eslint/parser': 5.53.0_7kw3g6rralp5ps6mg3uyzz6azm
@@ -450,6 +452,14 @@ packages:
     dependencies:
       tslib: 2.5.0
     dev: false
+
+  /@tailwindcss/line-clamp/0.4.2_tailwindcss@3.2.7:
+    resolution: {integrity: sha512-HFzAQuqYCjyy/SX9sLGB1lroPzmcnWv1FHkIpmypte10hptf4oPUfucryMKovZh2u0uiS9U5Ty3GghWfEJGwVw==}
+    peerDependencies:
+      tailwindcss: '>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1'
+    dependencies:
+      tailwindcss: 3.2.7
+    dev: true
 
   /@trivago/prettier-plugin-sort-imports/4.1.1_prettier@2.8.4:
     resolution: {integrity: sha512-dQ2r2uzNr1x6pJsuh/8x0IRA3CBUB+pWEW3J/7N98axqt7SQSm+2fy0FLNXvXGg77xEDC7KHxJlHfLYyi7PDcw==}

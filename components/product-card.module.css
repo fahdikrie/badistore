@@ -1,0 +1,42 @@
+.product_card {
+  @apply
+    p-4
+    w-[150px]
+    md:w-[200px]
+
+    rounded-lg
+    bg-white shadow-md
+
+    text-center
+    flex flex-col
+    justify-center items-center
+
+    hover:cursor-pointer
+    hover:scale-105 transition-transform duration-100
+}
+
+.image_wrapper {
+  @apply
+    w-24 h-32
+    md:w-32 md:h-40
+    relative overflow-hidden
+}
+
+.image_wrapper img {
+  @apply
+    object-contain
+}
+
+.title {
+  @apply
+    max-w-[110px]
+    text-sm mt-3 font-bold
+    text-gray-900
+    line-clamp-2
+}
+
+.price {
+  @apply
+    text-xs mt-1 font-medium
+    text-gray-800
+}
