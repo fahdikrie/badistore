@@ -1,0 +1,19 @@
+.favorites {
+  @apply
+    flex gap-2
+    justify-center items-center
+
+    cursor-pointer
+}
+
+.favorites span {
+  @apply
+    w-5 h-5
+    rounded-[50%]
+    bg-cyan-700
+    shadow-xl
+
+    flex items-center justify-center
+    text-center text-xs
+    font-normal text-white
+}

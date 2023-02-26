@@ -1,18 +1,18 @@
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
-interface CartState {
+interface FavoriteState {
   // state
   totalItems: number;
   products: Product[];
 
   // actions
-  addToCart: (product: Product) => void;
-  clearCart: () => void;
-  removeFromCart: (params: Product) => void;
+  addToFavorite: (product: Product) => void;
+  clearFavorite: () => void;
+  removeFromFavorite: (params: Product) => void;
 }
 
-const useCart = create<CartState>()(
+const useFavorite = create<FavoriteState>()(
   persist(
     (set, get) => ({
       // state
@@ -20,20 +20,20 @@ const useCart = create<CartState>()(
       products: [],
 
       // actions
-      addToCart: (product) =>
+      addToFavorite: (product) =>
         set({
           totalItems: get().totalItems + 1,
           products: [...get().products, product],
         }),
-      clearCart: () => set({ totalItems: 0, products: [] }),
-      removeFromCart: (product) =>
+      clearFavorite: () => set({ totalItems: 0, products: [] }),
+      removeFromFavorite: (product) =>
         set((state) => ({
           totalItems: state.totalItems - 1,
           products: state.products.filter((item) => item.id !== product.id),
         })),
     }),
-    { name: 'cart' }
+    { name: 'favorite' }
   )
 );
 
-export default useCart;
+export default useFavorite;
