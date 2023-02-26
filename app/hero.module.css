@@ -8,10 +8,11 @@
 
 .hero_title {
   @apply
-    w-[700px]
+    w-auto
+    md:w-[700px]
     text-center mx-auto
     font-sans font-black
-    text-2xl md:text-8xl
+    text-4xl md:text-8xl
 
     bg-clip-text text-transparent
     bg-gradient-to-r from-fuchsia-500 to-cyan-500
