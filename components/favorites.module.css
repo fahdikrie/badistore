@@ -1,12 +1,17 @@
 .favorites {
   @apply
+    relative
+}
+
+.favorites_button {
+  @apply
     flex gap-2
     justify-center items-center
 
     cursor-pointer
 }
 
-.favorites span {
+.favorites_button span {
   @apply
     w-5 h-5
     rounded-[50%]
@@ -17,3 +22,40 @@
     text-center text-xs
     font-normal text-white
 }
+
+.favorites_dropdown {
+  @apply
+    bg-transparent
+
+    absolute pt-2
+    top-[22px] right-0
+
+    w-64 max-h-0
+    overflow-y-scroll
+
+    rounded-md
+    shadow-xl
+    z-10
+
+    transition-all
+    ease-out
+    duration-300
+}
+
+.favorites_dropdown.show_dropdown {
+  @apply
+    max-h-48
+}
+
+.favorites_dropdown_wrapper {
+  @apply
+    p-2 bg-white
+    flex flex-col gap-2
+    rounded-md
+}
+
+.favorites_dropdown_item {
+  @apply
+    p-2
+}
+
