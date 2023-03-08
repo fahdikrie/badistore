@@ -31,6 +31,7 @@
     top-[22px] right-0
 
     w-64 max-h-0
+    group-hover:max-h-48
     overflow-y-scroll
 
     rounded-md
@@ -40,11 +41,6 @@
     transition-all
     ease-out
     duration-300
-}
-
-.favorites_dropdown.show_dropdown {
-  @apply
-    max-h-48
 }
 
 .favorites_dropdown_wrapper {
