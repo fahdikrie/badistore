@@ -30,8 +30,7 @@
     absolute pt-2
     top-[22px] right-0
 
-    w-64 max-h-0
-    group-hover:max-h-48
+    w-64
     overflow-y-scroll
 
     rounded-md
@@ -39,8 +38,8 @@
     z-10
 
     transition-all
-    ease-out
     duration-300
+    ease-out
 }
 
 .favorites_dropdown_wrapper {

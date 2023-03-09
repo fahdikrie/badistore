@@ -13,32 +13,32 @@ const Favorites = () => {
   const addToFavorites = useFavorite((state) => state.addToFavorite);
 
   return (
-    <>
-      <div
-        className={`${styles.favorites} group`}
-        onClick={() => clearFavorites()}
-      >
-        <div className={styles.favorites_button}>
-          {totalItems ? <BsHeartFill /> : <BsHeart />}
-          <span>{totalItems}</span>
-        </div>
+    <div
+      className={`${styles.favorites} group`}
+      onClick={() => clearFavorites()}
+    >
+      <div className={styles.favorites_button}>
+        {totalItems ? <BsHeartFill /> : <BsHeart />}
+        <span>{totalItems}</span>
+      </div>
 
-        <div className={styles.favorites_dropdown}>
-          <div className={styles.favorites_dropdown_wrapper}>
-            {totalItems ? (
-              favProducts.map((product, idx) => (
-                <div key={idx} className={styles.favorites_dropdown_item}>
-                  {product.title}
-                  <button onClick={() => addToFavorites(product)}>Add</button>
-                </div>
-              ))
-            ) : (
-              <h6>Favorites is empty</h6>
-            )}
-          </div>
+      <div
+        className={`${styles.favorites_dropdown} max-h-0 group-hover:max-h-64`}
+      >
+        <div className={styles.favorites_dropdown_wrapper}>
+          {totalItems ? (
+            favProducts.map((product, idx) => (
+              <div key={idx} className={styles.favorites_dropdown_item}>
+                {product.title}
+                <button onClick={() => addToFavorites(product)}>Add</button>
+              </div>
+            ))
+          ) : (
+            <h6>Favorites is empty</h6>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
