@@ -16,7 +16,7 @@ const Favorites = () => {
     <div className={`${styles.favorites} group`}>
       <div className={styles.favorites_button}>
         {totalItems ? <BsHeartFill /> : <BsHeart />}
-        <span>{favProducts.length}</span>
+        <span>{totalItems}</span>
       </div>
 
       <div
