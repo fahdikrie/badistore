@@ -8,8 +8,8 @@ interface FavoriteState {
 
   // actions
   addToFavorite: (product: Product) => void;
-  clearFavorite: () => void;
   removeFromFavorite: (params: Product) => void;
+  clearFavorite: () => void;
 }
 
 const useFavorite = create<FavoriteState>()(
@@ -40,12 +40,18 @@ const useFavorite = create<FavoriteState>()(
           products: products,
         });
       },
-      clearFavorite: () => set({ totalItems: 0, products: [] }),
       removeFromFavorite: (product) =>
         set((state) => ({
-          totalItems: state.totalItems - 1,
+          totalItems:
+            state.totalItems -
+            (
+              get().products.find(
+                (item) => item.id === product.id
+              ) as ProductWithQty
+            ).qty,
           products: state.products.filter((item) => item.id !== product.id),
         })),
+      clearFavorite: () => set({ totalItems: 0, products: [] }),
     }),
     { name: 'favorite' }
   )

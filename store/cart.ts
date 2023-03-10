@@ -8,8 +8,8 @@ interface CartState {
 
   // actions
   addToCart: (product: Product) => void;
-  clearCart: () => void;
   removeFromCart: (params: Product) => void;
+  clearCart: () => void;
 }
 
 const useCart = create<CartState>()(
@@ -40,12 +40,18 @@ const useCart = create<CartState>()(
           products: products,
         });
       },
-      clearCart: () => set({ totalItems: 0, products: [] }),
       removeFromCart: (product) =>
         set((state) => ({
-          totalItems: state.totalItems - 1,
+          totalItems:
+            state.totalItems -
+            (
+              get().products.find(
+                (item) => item.id === product.id
+              ) as ProductWithQty
+            ).qty,
           products: state.products.filter((item) => item.id !== product.id),
         })),
+      clearCart: () => set({ totalItems: 0, products: [] }),
     }),
     { name: 'cart' }
   )

@@ -10,6 +10,7 @@ const Favorites = () => {
   const totalItems = useFavorite((state) => state.totalItems);
   const favProducts = useFavorite((state) => state.products);
   const addToFavorite = useFavorite((state) => state.addToFavorite);
+  const removeFromFavorite = useFavorite((state) => state.removeFromFavorite);
   const clearFavorite = useFavorite((state) => state.clearFavorite);
 
   return (
@@ -31,7 +32,13 @@ const Favorites = () => {
                 <div key={idx} className={styles.favorites_dropdown_item}>
                   {product.title} <br />
                   Stock: {product.qty} <br />
-                  <button onClick={() => addToFavorite(product)}>Add</button>
+                  <button onClick={() => addToFavorite(product)}>
+                    Add
+                  </button>{' '}
+                  <br />
+                  <button onClick={() => removeFromFavorite(product)}>
+                    Remove
+                  </button>
                 </div>
               ))}
 
