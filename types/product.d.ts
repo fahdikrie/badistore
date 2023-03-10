@@ -10,3 +10,7 @@ type Product = {
     count: number;
   };
 };
+
+interface ProductWithQty extends Product {
+  qty: number;
+}

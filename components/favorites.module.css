@@ -27,8 +27,8 @@
   @apply
     bg-transparent
 
-    absolute pt-2
-    top-[22px] right-0
+    absolute
+    top-8 right-0
 
     w-64
     overflow-y-scroll
@@ -42,9 +42,14 @@
     ease-out
 }
 
+.favorites_dropdown h6 {
+  @apply
+    p-2
+}
+
 .favorites_dropdown_wrapper {
   @apply
-    p-2 bg-white
+    p-1 bg-white
     flex flex-col gap-2
     rounded-md
 }

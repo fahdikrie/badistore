@@ -4,7 +4,7 @@ import { persist } from 'zustand/middleware';
 interface FavoriteState {
   // state
   totalItems: number;
-  products: Product[];
+  products: ProductWithQty[];
 
   // actions
   addToFavorite: (product: Product) => void;
@@ -20,11 +20,26 @@ const useFavorite = create<FavoriteState>()(
       products: [],
 
       // actions
-      addToFavorite: (product) =>
-        set({
+      addToFavorite: (product) => {
+        let products = get().products;
+
+        if (products.find((item) => item.id === product.id)) {
+          products = products.map((item) => {
+            if (item.id === product.id) {
+              return { ...item, qty: item.qty + 1 };
+            }
+
+            return item;
+          });
+        } else {
+          products = [...products, { ...product, qty: 1 }];
+        }
+
+        return set({
           totalItems: get().totalItems + 1,
-          products: [...get().products, product],
-        }),
+          products: products,
+        });
+      },
       clearFavorite: () => set({ totalItems: 0, products: [] }),
       removeFromFavorite: (product) =>
         set((state) => ({
